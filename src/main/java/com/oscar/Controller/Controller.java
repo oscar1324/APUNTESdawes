@@ -7,7 +7,10 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,8 +46,10 @@ public class Controller extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		// Se hace fuera por el alcance maximo de las variables dentro del try-catch
+		
+		List<AlumnoDTO> listaAlumnos = new ArrayList<AlumnoDTO>();
+		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver"); // sirve para cargar
 			String dURL = "jdbc:mysql://localhost:3306/colegio";
@@ -57,8 +62,12 @@ public class Controller extends HttpServlet {
 			
 			while(rs.next()){
 				AlumnoDTO a = new AlumnoDTO( rs.getString(2),rs.getInt(1), "");
-				
+				listaAlumnos.add(a);
 			}
+			
+			request.setAttribute("lista", listaAlumnos);
+			RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/listadoAlumnos.jsp");
+			d.forward(request, response);
 	
 		} catch (SQLException | ClassNotFoundException e) {
 			// TODO: handle exception
