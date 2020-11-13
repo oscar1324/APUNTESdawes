@@ -13,7 +13,7 @@
 	
 	<ul>  <!-- items es lo que le va a pasar el controller -->
 	<c:forEach items="${lista}" var="alumno">
-			<li> ${alumno.id - ${alumno.nombre } </li>
+			<li> ${alumno.id} - ${alumno.nombre } </li>
 	</c:forEach>
 	</ul>
 </body>

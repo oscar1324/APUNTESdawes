@@ -24,7 +24,7 @@ import com.mysql.cj.protocol.Resultset;
 
 
 import com.oscar.Alumno.*;
-
+import com.oscar.utils.*;
 /**
  * Servlet implementation class Controller
  */
@@ -51,12 +51,7 @@ public class Controller extends HttpServlet {
 		List<AlumnoDTO> listaAlumnos = new ArrayList<AlumnoDTO>();
 		
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver"); // sirve para cargar
-			String dURL = "jdbc:mysql://localhost:3306/colegio";
-			String username = "root";
-			String password = "root";
-			Connection connection = DriverManager.getConnection(dURL,username,password) ;
-			
+			Connection connection = DBUtils.DBConnection();
 			Statement st = connection.createStatement(); // es la query que se le envia a la BBDD, lo precompila y lo guarda
 			ResultSet rs = st.executeQuery("SELECT * FROM ALUMNOS"); // Conuunto de resultados
 			
@@ -69,8 +64,7 @@ public class Controller extends HttpServlet {
 			RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/listadoAlumnos.jsp");
 			d.forward(request, response);
 	
-		} catch (SQLException | ClassNotFoundException e) {
-			// TODO: handle exception
+		} catch (SQLException  e) {
 			e.printStackTrace();
 		}
 	}
