@@ -13,12 +13,14 @@ public class AlumnoDTO {
 	private Integer id;
 	private String municipio;
 	
+       
 	
-	public AlumnoDTO() {
+	public AlumnoDTO(String nombre, Integer id) {
 		super();
-		// TODO Auto-generated constructor stub
+		this.nombre = nombre;
+		this.id = id;
 	}
-	
+
 	public AlumnoDTO(String nombre, Integer id, String municipio) {
 		super();
 		this.nombre = nombre;

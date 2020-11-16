@@ -15,5 +15,9 @@ import com.oscar.Alumno.AlumnoDTO;
 
 public interface AlumnoDAO {
 		List <AlumnoDTO> obtenerTodosAlumnos();
+		
+
+
+		List<AlumnoDTO> obtenerAlumnosporIdyNombre(String nombre, String id);
 }
 

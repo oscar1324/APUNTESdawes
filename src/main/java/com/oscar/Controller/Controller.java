@@ -51,7 +51,7 @@ public class Controller extends HttpServlet {
 		
 		AlumnoDAO a = new AlumnoDAOimple();
 		List<AlumnoDTO> listaAlumnos;
-		listaAlumnos = a.obtenerTodosAlumnos();
+		listaAlumnos = a.obtenerAlumnosporIdyNombre("E", "");
 
 			request.setAttribute("lista", listaAlumnos);
 			RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/listadoAlumnos.jsp");
