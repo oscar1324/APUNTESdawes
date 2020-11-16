@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,9 +20,11 @@ import org.slf4j.LoggerFactory;
 
 
 import com.mysql.cj.protocol.Resultset;
-
+import com.oscar.dao.impl.*;
 
 import com.oscar.Alumno.*;
+import com.oscar.dao.AlumnoDAO;
+import com.oscar.dao.impl.AlumnoDAOimple;
 import com.oscar.utils.*;
 /**
  * Servlet implementation class Controller
@@ -48,25 +49,15 @@ public class Controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Se hace fuera por el alcance maximo de las variables dentro del try-catch
 		
-		List<AlumnoDTO> listaAlumnos = new ArrayList<AlumnoDTO>();
-		
-		try {
-			Connection connection = DBUtils.DBConnection();
-			Statement st = connection.createStatement(); // es la query que se le envia a la BBDD, lo precompila y lo guarda
-			ResultSet rs = st.executeQuery("SELECT * FROM ALUMNOS"); // Conuunto de resultados
-			
-			while(rs.next()){
-				AlumnoDTO a = new AlumnoDTO( rs.getString(2),rs.getInt(1), "");
-				listaAlumnos.add(a);
-			}
-			
+		AlumnoDAO a = new AlumnoDAOimple();
+		List<AlumnoDTO> listaAlumnos;
+		listaAlumnos = a.obtenerTodosAlumnos();
+
 			request.setAttribute("lista", listaAlumnos);
 			RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/listadoAlumnos.jsp");
 			d.forward(request, response);
 	
-		} catch (SQLException  e) {
-			e.printStackTrace();
-		}
+
 	}
 
 	/**
