@@ -22,9 +22,10 @@ import org.slf4j.LoggerFactory;
 import com.mysql.cj.protocol.Resultset;
 import com.oscar.dao.impl.*;
 
-import com.oscar.Alumno.*;
+import com.oscar.dto.*;
 import com.oscar.dao.AlumnoDAO;
 import com.oscar.dao.impl.AlumnoDAOimple;
+import com.oscar.dto.AlumnoDTO;
 import com.oscar.utils.*;
 /**
  * Servlet implementation class Controller

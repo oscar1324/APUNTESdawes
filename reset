@@ -1,0 +1,47 @@
+[33mcommit 63f1c60f33b0a89ffbf4922b1729147c0088c26e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: oscar <oscarGradoClase@gmail.com>
+Date:   Thu Nov 19 09:57:31 2020 +0100
+
+    [ADD] Creación de la tabla para los resultados. Corregir la vista a la hora de iniciar la busqueda por que me sale página en blanco
+
+[33mcommit 067704969c98cebb20ab10834b4ab5fdb51338ed[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: oscar <oscarGradoClase@gmail.com>
+Date:   Mon Nov 16 12:24:48 2020 +0100
+
+    [ADD] Creación de la página de inicio index y el css para la vista gráfica al inicio de la aplicación
+
+[33mcommit a699d8a5eeb86bd45f3f268404040e64232362ea[m
+Author: oscar <oscarGradoClase@gmail.com>
+Date:   Mon Nov 16 12:04:39 2020 +0100
+
+    Nuevo método obtenerAlumnosIdyNombres creado en la clase AlumnoDAOimple, donde le metemos a pelo los datos para ver si nos muestra la SQL que deseamos
+
+[33mcommit b9e797ffaaa52d3308be8ba3449d660b75a5b94e[m
+Author: oscar <oscarGradoClase@gmail.com>
+Date:   Mon Nov 16 10:24:52 2020 +0100
+
+    Refactorización, creando AlumnoDAO además de su interfaz, en la que creamos el ArrayList para que nos devuelva la lista
+
+[33mcommit e03de049cc5e704d671fcdfc4c8745f38f106474[m
+Author: oscar <oscarGradoClase@gmail.com>
+Date:   Fri Nov 13 12:26:18 2020 +0100
+
+    Uso de la clase DBUtils, realizar de esta manera para un correcto uso
+
+[33mcommit ef98eb1cffa400fd97ecdaea2ff0de2442de59ab[m
+Author: oscar <oscarGradoClase@gmail.com>
+Date:   Fri Nov 13 10:21:11 2020 +0100
+
+    Creación de clase CBUtils para utilizar la conexión con más
+
+[33mcommit 5693b7ff348eaefe397318febf6932ea41697100[m[33m ([m[1;32mfeaure/deleteAlumnos[m[33m)[m
+Author: oscar <oscarGradoClase@gmail.com>
+Date:   Fri Nov 13 09:43:50 2020 +0100
+
+    Subida de domcuento.jsp dodne muestra los resultados, además de añadir el dispatcher y el setAtribute
+
+[33mcommit 956d35f27a6979fe4718ffb78c9b5a431c8070f7[m
+Author: oscar <oscarGradoClase@gmail.com>
+Date:   Thu Nov 12 12:32:33 2020 +0100
+
+    Estudio, subida de conexion

@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.oscar.Alumno.AlumnoDTO;
+import com.oscar.dto.*;
 import com.oscar.dao.AlumnoDAO;
 import com.oscar.utils.DBUtils;
 import com.oscar.dao.*;
@@ -39,6 +39,10 @@ public class AlumnoDAOimple implements AlumnoDAO {
 	@Override
 	public List<AlumnoDTO> obtenerAlumnosporIdyNombre(String nombre, String id) {
 		String sql = "SELECT * FROM alumnos WHERE id LIKE ? AND nombre LIKE ?";
+		String sql2 = "SELECT a.id, a.nombre, m.nombre" 
+		+ "from alumnos a, municipios"
+		+ "where a.id_municipio = m.id_municipio"
+		+ "AND id like ? AND a.nombre LIKE?";
 		
 		ResultSet alumnoResultSet = null;
 		Connection connection = DBUtils.DBConnection();
@@ -53,7 +57,7 @@ public class AlumnoDAOimple implements AlumnoDAO {
 			
 			
 			while(alumnoResultSet.next()) {
-				AlumnoDTO a = new AlumnoDTO (alumnoResultSet.getString(2), alumnoResultSet.getInt(1), "");
+				AlumnoDTO a = new AlumnoDTO (alumnoResultSet.getString(2), alumnoResultSet.getInt(1), alumnoResultSet.getString(3));
 				listaAlumnos.add(a);
 			}
 		} catch (SQLException e) {

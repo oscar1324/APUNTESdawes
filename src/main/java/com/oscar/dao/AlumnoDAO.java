@@ -5,7 +5,7 @@ package com.oscar.dao;
 
 import java.util.List;
 
-import com.oscar.Alumno.AlumnoDTO;
+import com.oscar.dto.*;
 
 
 /**

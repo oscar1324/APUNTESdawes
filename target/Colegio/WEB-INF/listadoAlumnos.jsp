@@ -33,12 +33,5 @@
 		</tr>
 	
 	</table>
-	
-	
-	
-	
-	<!-- Antiguo por each de la lista guarra -->
-
-
 </body>
 </html>

@@ -14,10 +14,6 @@
 </header>
 	<%@include file="/menu.html"%>
 
-
-
-
-
 </body>
 </html>
 

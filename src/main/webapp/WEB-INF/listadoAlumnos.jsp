@@ -26,10 +26,15 @@
 		</div>
 	</div>
 	
+	<c:if test="${empty lista}">
+		<h1>No hay resultados con estos filtros</h1>
+	</c:if>
+	
 	<table>
 		<tr>
 			<th>ID</th>
 			<th>NOMBRE</th>
+			<th>MUNICIPIO</th>
 		</tr>
 	
 	</table>
