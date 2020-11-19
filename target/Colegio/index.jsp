@@ -6,13 +6,13 @@
    <%@ page isELIgnored="false"%>
 <html>
 <head>
-	 <link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 <header>
 <h2>Gestión de Colegio</h2>
 </header>
-<%@include file="menu.html" %>
+	<%@include file="/menu.html"%>
 
 
 
@@ -20,3 +20,6 @@
 
 </body>
 </html>
+
+
+
