@@ -33,6 +33,10 @@
 						</c:forEach>
 					</select>
 						<input type="submit" value="Enviar">
+						
+					<c:if test="${resultado == 1}">
+						<h1>Alumno insertado correctamente</h1>
+					</c:if>
 			</form>
 		</div>
 	</div>

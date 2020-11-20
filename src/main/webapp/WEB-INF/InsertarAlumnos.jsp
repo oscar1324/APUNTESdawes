@@ -17,7 +17,7 @@
 	
 		<div class="container">
 		<div class="form">
-			<form action="http://localhost:8080/Colegio/insertaralumno" method="post"> <!-- corregir -->
+			<form action="http://localhost:8080/Colegio/insertaralumno" method="post" id="formulario"> 
 				<label for="id">DNI Alumno</label>
 				 <input type="text" id="id"name="id"> 
 					<label for="nombre">Nombre Alumno</label> 
@@ -33,6 +33,10 @@
 						</c:forEach>
 					</select>
 						<input type="submit" value="Enviar">
+						
+					<c:if test="${resultado == 1}">
+						<h1>Alumno insertado correctamente</h1>
+					</c:if>
 			</form>
 		</div>
 	</div>

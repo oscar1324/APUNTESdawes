@@ -4,5 +4,15 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>ActualizarAlumnosController</servlet-name>
+  	<display-name>ActualizarAlumnosController</display-name>
+  	<description></description>
+  	<servlet-class>com.oscar.Controller.ActualizarAlumnosController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ActualizarAlumnosController</servlet-name>
+  	<url-pattern>/ActualizarAlumnosController</url-pattern>
+  </servlet-mapping>
 
 </web-app>

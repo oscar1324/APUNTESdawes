@@ -38,14 +38,22 @@ public class InsertarAlumnosController extends HttpServlet {
     
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			// 1- recuperar de la BBDD todos lo smunicipios y meterlos en un alista
-				CombosDAO comboMunicipio = new ComboDAOImple();
-				List<ComboDTO> listaMunicipios = comboMunicipio.ComboMunicipios();
-			// 2- Pasar la lista a la vista
-					request.setAttribute("comboMunicipios", listaMunicipios);
-			// 3- Redirigir a la vista
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/insertaralumno.jsp");
-		
+			
+	
+			recuperacionComboMunicipios(request);
+			RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/InsertarAlumnos.jsp");
+			d.forward(request, response);
+
+
+	}
+
+	private void recuperacionComboMunicipios(HttpServletRequest request) {
+		// 1- recuperar de la BBDD todos lo smunicipios y meterlos en un alista
+		CombosDAO comboMunicipio = new ComboDAOImple();
+		List<ComboDTO> listaMunicipios = comboMunicipio.ComboMunicipios();
+		// 2- Pasar la lista a la vista
+		request.setAttribute("comboMunicipios", listaMunicipios);
+		// 3- Redirigir a la vista
 	}
 
 	/**
@@ -60,7 +68,13 @@ public class InsertarAlumnosController extends HttpServlet {
 		
 		AlumnoDAO a = new AlumnoDAOimple(); // le pasamos los parametros para insertarlo
 		
-		a.insertarAlumnos(id, nombre, claveMunicipio);
+		Integer resultado = a.insertarAlumnos(id, nombre, claveMunicipio);
+		
+		request.setAttribute("resultado", resultado);
+		recuperacionComboMunicipios(request);
+		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/InsertarAlumnos.jsp");
+		d.forward(request, response);
+		
 	}
 
 }
