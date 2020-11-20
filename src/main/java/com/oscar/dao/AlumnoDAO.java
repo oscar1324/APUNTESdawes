@@ -16,8 +16,8 @@ import com.oscar.dto.*;
 public interface AlumnoDAO {
 		List <AlumnoDTO> obtenerTodosAlumnos();
 		
-
-
 		List<AlumnoDTO> obtenerAlumnosporIdyNombre(String nombre, String id);
+		
+		Integer insertarAlumnos(String id, String nombre, String claveMunicipio);
 }
 

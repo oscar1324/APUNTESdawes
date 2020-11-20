@@ -18,10 +18,11 @@
 	<div class="container">
 		<div class="form">
 			<form action="http://localhost:8080/Colegio/listadoAlumnos" method="post"> <!-- corregir -->
-				<label for="id">Id Alumno</label> <input type="text" id="id"
-					name="id"> <label for="nombre">Nombre Alumno</label> <input
-					type="text" id="nombre" name="nombre"><br> <input
-					type="submit" value="Enviar">
+				<label for="id">Id Alumno</label> 
+				<input type="text" id="id" name="id">
+				<label for="nombre">Nombre Alumno</label> 
+				<input type="text" id="nombre" name="nombre"><br>
+			    <input type="submit" value="Enviar">
 			</form>
 		</div>
 	</div>
@@ -36,7 +37,15 @@
 			<th>NOMBRE</th>
 			<th>MUNICIPIO</th>
 		</tr>
-	
+		
+				<c:forEach items="${lista}" var="alumno">
+			<tr> 
+				<td>${alumno.id} </td>
+				<td>${alumno.nombre} </td>
+				<td>${alumno.municipio} </td>
+			</tr>
+		
+		</c:forEach>
 	</table>
 </body>
 </html>

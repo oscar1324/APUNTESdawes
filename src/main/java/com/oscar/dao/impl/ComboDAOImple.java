@@ -26,33 +26,25 @@ public class ComboDAOImple implements CombosDAO {
 
 
 		
-		String sql = "SELECT * FROM alumnos WHERE id LIKE ? AND nombre LIKE ?";
-		String sql2 = "SELECT a.id, a.nombre, m.nombre" 
-		+ "from alumnos a, municipios"
-		+ "where a.id_municipio = m.id_municipio"
-		+ "AND id like ? AND a.nombre LIKE?";
-		
-		ResultSet alumnoResultSet = null;
-		Connection connection = DBUtils.DBConnection();
-		List<AlumnoDTO> listaAlumnos = new ArrayList<>();
+		String sql = "SELECT * FROM municipios";
+		List<ComboDTO> listaMunicipios = new ArrayList<>();
 		
 		try {
+			Connection connection = DBUtils.DBConnection();			 
 			PreparedStatement ps = connection.prepareStatement(sql);
-			ps.setString(1, "%" + id + "%");
-			ps.setString(2, "%" + nombre + "%");
+			ResultSet  rs = ps.executeQuery();
 			
-			alumnoResultSet =  ps.executeQuery();
-			
-			
-			while(alumnoResultSet.next()) {
-				AlumnoDTO a = new AlumnoDTO (alumnoResultSet.getString(2), alumnoResultSet.getInt(1), alumnoResultSet.getString(3));
-				listaAlumnos.add(a);
+			while (rs.next()) {				
+				ComboDTO a = new ComboDTO(rs.getInt(1), rs.getString(5));
+				listaMunicipios.add(a);
 			}
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		return null;
+		}		
+
+		return listaMunicipios;
 	}
 		
 }

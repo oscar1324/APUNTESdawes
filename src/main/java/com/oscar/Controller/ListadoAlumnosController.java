@@ -67,5 +67,7 @@ public class ListadoAlumnosController extends HttpServlet {
 		listaAlumnos = a.obtenerAlumnosporIdyNombre(nombre, id);
 
 			request.setAttribute("lista", listaAlumnos);
+			RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/listadoAlumnos.jsp");
+			d.forward(request, response);
 	}
 }

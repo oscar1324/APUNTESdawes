@@ -22,13 +22,17 @@
 				 <input type="text" id="id"name="id"> 
 					<label for="nombre">Nombre Alumno</label> 
 					<input type="text" id="nombre" name="nombre"><br> 
-					<input type="submit" value="Enviar">
+				
 					
 					<select name="municipios" id="municipios" form="formulario">
+					
 						<c:forEach items="${comboMunicipios}" var="municipio">
+						
 							<option value="${municipio.id}"> ${municipio.descripcion}</option>
+						
 						</c:forEach>
 					</select>
+						<input type="submit" value="Enviar">
 			</form>
 		</div>
 	</div>

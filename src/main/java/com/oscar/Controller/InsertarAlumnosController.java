@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.oscar.dao.AlumnoDAO;
 import com.oscar.dao.CombosDAO;
+import com.oscar.dao.impl.AlumnoDAOimple;
 import com.oscar.dao.impl.ComboDAOImple;
 import com.oscar.dto.ComboDTO;
 
@@ -51,7 +53,14 @@ public class InsertarAlumnosController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		String id = request.getParameter("id");
+		String nombre = request.getParameter("nombre");
+		String claveMunicipio = request.getParameter("municipios");
+		
+		AlumnoDAO a = new AlumnoDAOimple(); // le pasamos los parametros para insertarlo
+		
+		a.insertarAlumnos(id, nombre, claveMunicipio);
 	}
 
 }

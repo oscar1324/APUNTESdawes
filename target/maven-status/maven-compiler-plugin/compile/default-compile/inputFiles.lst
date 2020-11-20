@@ -1,5 +1,9 @@
-C:\Users\201905\eclipse-workspace\Colegio\src\main\java\com\oscar\Alumno\AlumnoDTO.java
+C:\Users\201905\eclipse-workspace\Colegio\src\main\java\com\oscar\dao\impl\ComboDAOImple.java
 C:\Users\201905\eclipse-workspace\Colegio\src\main\java\com\oscar\Controller\ListadoAlumnosController.java
+C:\Users\201905\eclipse-workspace\Colegio\src\main\java\com\oscar\dto\AlumnoDTO.java
+C:\Users\201905\eclipse-workspace\Colegio\src\main\java\com\oscar\Controller\InsertarAlumnosController.java
+C:\Users\201905\eclipse-workspace\Colegio\src\main\java\com\oscar\dto\ComboDTO.java
 C:\Users\201905\eclipse-workspace\Colegio\src\main\java\com\oscar\dao\AlumnoDAO.java
 C:\Users\201905\eclipse-workspace\Colegio\src\main\java\com\oscar\utils\DBUtils.java
+C:\Users\201905\eclipse-workspace\Colegio\src\main\java\com\oscar\dao\CombosDAO.java
 C:\Users\201905\eclipse-workspace\Colegio\src\main\java\com\oscar\dao\impl\AlumnoDAOimple.java

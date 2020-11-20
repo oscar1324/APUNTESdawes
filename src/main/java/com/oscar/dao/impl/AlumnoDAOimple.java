@@ -47,9 +47,10 @@ public class AlumnoDAOimple implements AlumnoDAO {
 		ResultSet alumnoResultSet = null;
 		Connection connection = DBUtils.DBConnection();
 		List<AlumnoDTO> listaAlumnos = new ArrayList<>();
+		PreparedStatement ps = null;
 		
 		try {
-			PreparedStatement ps = connection.prepareStatement(sql);
+			ps = connection.prepareStatement(sql);
 			ps.setString(1, "%" + id + "%");
 			ps.setString(2, "%" + nombre + "%");
 			
@@ -63,8 +64,48 @@ public class AlumnoDAOimple implements AlumnoDAO {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} finally {
+			try {
+				connection.close();
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} 
+		
+		
 		return listaAlumnos;
+	}
+
+
+	@Override
+	public Integer insertarAlumnos(String id, String nombre, String claveMunicipio) {
+		String sql = "INSERT INTO alumnos (ID,NOMBRE,ID_MUNICIPIO) VALUES (?,?,?)";
+		Connection connection = DBUtils.DBConnection();
+		PreparedStatement ps = null;
+		Integer resultado = null;
+		
+		
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.setString(2, nombre);
+			ps.setString(3, claveMunicipio);
+			
+			 resultado = ps.executeUpdate();
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				connection.close();
+				ps.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return 0;
 	}
 	
 	
