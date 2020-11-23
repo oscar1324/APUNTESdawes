@@ -10,9 +10,19 @@
   	<description></description>
   	<servlet-class>com.oscar.Controller.ActualizarAlumnosController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ActualizarAlumnoController</servlet-name>
+  	<display-name>ActualizarAlumnoController</display-name>
+  	<description></description>
+  	<servlet-class>com.oscar.Controller.ActualizarAlumnoController</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>ActualizarAlumnosController</servlet-name>
   	<url-pattern>/ActualizarAlumnosController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ActualizarAlumnoController</servlet-name>
+  	<url-pattern>/ActualizarAlumnoController</url-pattern>
   </servlet-mapping>
 
 </web-app>

@@ -17,7 +17,8 @@
 	
 		<div class="container">
 		<div class="form">
-			<form action="http://localhost:8080/Colegio/insertaralumno" method="post"> <!-- corregir -->
+			<form action="http://localhost:8080/Colegio/insertaralumno" method="post" id="formulario"> 
+			
 				<label for="id">DNI Alumno</label>
 				 <input type="text" id="id"name="id"> 
 					<label for="nombre">Nombre Alumno</label> 

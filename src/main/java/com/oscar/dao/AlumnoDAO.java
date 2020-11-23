@@ -19,5 +19,7 @@ public interface AlumnoDAO {
 		List<AlumnoDTO> obtenerAlumnosporIdyNombre(String nombre, String id);
 		
 		Integer insertarAlumnos(String id, String nombre, String claveMunicipio);
+		
+		Integer actualizarAlumno(String idOld,String idNew, String nombre, String claveMunicipio);
 }
 

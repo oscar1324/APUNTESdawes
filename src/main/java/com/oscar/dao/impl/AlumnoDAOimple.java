@@ -39,8 +39,8 @@ public class AlumnoDAOimple implements AlumnoDAO {
 	@Override
 	public List<AlumnoDTO> obtenerAlumnosporIdyNombre(String nombre, String id) {
 		String sql = "SELECT * FROM alumnos WHERE id LIKE ? AND nombre LIKE ?";
-		String sql2 = "SELECT a.id, a.nombre, m.nombre" 
-		+ "from alumnos a, municipios"
+		String sql2 = "SELECT a.id, a.nombre, m.nombre, m.id_municipio" 
+		+ "from alumnos a, municipios m"
 		+ "where a.id_municipio = m.id_municipio"
 		+ "AND id like ? AND a.nombre LIKE?";
 		
@@ -107,6 +107,43 @@ public class AlumnoDAOimple implements AlumnoDAO {
 		}
 		return 0;
 	}
+	
+	
+	
+
+	@Override
+	public Integer actualizarAlumno(String idOld,String idNew, String nombre, String claveMunicipio) {
+		String sql = "UPDATE alumnos SET id= ?, nombre= ?, id_municipio= ? WHERE id = ?";
+		
+		
+		Connection connection = DBUtils.DBConnection();
+		PreparedStatement ps = null;
+		Integer resultado = null;
+		
+		
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, idNew);
+			ps.setString(2, nombre);
+			ps.setString(3, claveMunicipio);
+			ps.setString(4, idOld);
+			
+			 resultado = ps.executeUpdate();
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				connection.close();
+				ps.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return 0;
+	}
+	 
 	
 	
 

@@ -24,11 +24,10 @@ public class ComboDAOImple implements CombosDAO {
 	@Override
 	public List<ComboDTO> ComboMunicipios() {
 
-
-		
 		String sql = "SELECT * FROM municipios";
+		String sql1 = "SELECT * FROM municipios ORDER BY nombre";
 		List<ComboDTO> listaMunicipios = new ArrayList<>();
-		
+
 		try {
 			Connection connection = DBUtils.DBConnection();			 
 			PreparedStatement ps = connection.prepareStatement(sql);
@@ -43,8 +42,8 @@ public class ComboDAOImple implements CombosDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
-
 		return listaMunicipios;
 	}
+
 		
 }

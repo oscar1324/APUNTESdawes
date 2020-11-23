@@ -17,7 +17,7 @@
 
 	<div class="container">
 		<div class="form">
-			<form action="http://localhost:8080/Colegio/actualizaralumnos" method="post"> <!-- corregir -->
+			<form action="http://localhost:8080/Colegio/formularioactualizaralumnos" method="post"> <!-- corregir -->
 				<label for="id">Id Alumno</label> 
 				<input type="text" id="id" name="id">
 				<label for="nombre">Nombre Alumno</label> 
@@ -30,6 +30,13 @@
 	<c:if test="${empty lista}">
 		<h1>No hay resultados con estos filtros</h1>
 	</c:if>
+	
+	<c:forEach items="${lista}" var="alumno">
+		<form action="" method="post">
+			<input>
+		</form>
+	
+	</c:forEach>
 	
 		
 
